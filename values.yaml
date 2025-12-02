@@ -1,3 +1,8 @@
+image:
+  repository: bitnamilegacy/spark
+global:
+  security:
+    allowInsecureImages: true
 master:
   configOptions:
     -Dspark.ui.reverseProxy=true

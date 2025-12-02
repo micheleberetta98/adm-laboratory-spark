@@ -1,3 +1,2 @@
 #!/bin/bash
-helm repo add bitnami https://charts.bitnami.com/bitnami
-helm upgrade --install --values values.yaml spark bitnami/spark
+helm upgrade --install --values values.yaml spark oci://registry-1.docker.io/bitnamicharts/spark

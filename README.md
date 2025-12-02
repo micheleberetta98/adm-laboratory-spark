@@ -76,8 +76,15 @@ Get a terminal on a Spark worker node:
 You have now access to the Spark 3.3.2 cluster. Launch a test MapReduce job to compute pi:
 
 ```bash
-spark-submit --master spark://spark-master-svc:7077 --class org.apache.spark.examples.SparkPi examples/jars/spark-examples_2.12-3.5.3.jar 100
+spark-submit \
+  --master spark://spark-master-svc:7077 \
+  --conf spark.jars.ivy=/tmp/ivy2 \
+  --class org.apache.spark.examples.SparkPi examples/jars/spark-examples_2.12-3.5.3.jar 100
 ```
+
+The `--conf` line is to fix a
+[possible problem](https://stackoverflow.com/questions/77039532/spark-kafka-integration-basedir-must-be-absolute-ivy2-local#77042840)
+when running the Spark job.
 
 ## Access the Spark Dashboard
 
